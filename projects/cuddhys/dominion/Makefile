@@ -29,6 +29,26 @@ runtests: testDrawCard
 	gcov dominion.c >> unittestresult.out
 	cat dominion.c.gcov >> unittestresult.out
 
+testGetCost: testGetCost.c dominion.o rngs.o
+	gcc -o testGetCost -g testGetCost.c dominion.o rngs.o $(CFLAGS)
+
+testisGameOver: testisGameOver.c dominion.o rngs.o
+	gcc -o testisGameOver -g testisGameOver.c dominion.o rngs.o $(CFLAGS)
+
+testGetWinners: testGetWinners.c dominion.o rngs.o
+	gcc -o testGetWinners -g testGetWinners.c dominion.o rngs.o $(CFLAGS)
+
+testAdventureFunc: testAdventureFunc.c dominion.o rngs.o
+	gcc -o testAdventureFunc -g testAdventureFunc.c dominion.o rngs.o $(CFLAGS)
+
+testSmithyFunc: testSmithyFunc.c dominion.o rngs.o
+	gcc -o testSmithyFunc -g testSmithyFunc.c dominion.o rngs.o $(CFLAGS)
+
+testVillageFunc: testVillageFunc.c dominion.o rngs.o
+	gcc -o testVillageFunc -g testVillageFunc.c dominion.o rngs.o $(CLAGS)
+
+testGreatHallFunc: testGreatHallFunc.c dominion.o rngs.o
+	gcc -o testGreatHallFunc -g testGreatHallFunc.c dominion.o rngs.o $(CFLAGS)
 
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
