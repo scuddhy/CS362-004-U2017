@@ -1,0 +1,95 @@
+        -:    0:Source:randomtestcard2.c
+        -:    0:Graph:randomtestcard2.gcno
+        -:    0:Data:randomtestcard2.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/*****************************************************
+        -:    2: * Author: Shawn Cuddhy
+        -:    3: * Description: random tester for the Great_Hall card
+        -:    4:******************************************************/
+        -:    5:
+        -:    6:#include "dominion.h"
+        -:    7:#include "dominion_helpers.h"
+        -:    8:#include <string.h>
+        -:    9:#include <stdio.h>
+        -:   10:#include <assert.h>
+        -:   11:#include "rngs.h"
+        -:   12:
+        -:   13:
+        -:   14:
+        -:   15:
+function great_HallFuncTwo called 100 returned 100% blocks executed 100%
+      100:   16:int great_HallFuncTwo(int currentPlayer, struct gameState* state, int handPos){
+        -:   17:	//+1 card
+      100:   18:	drawCard(currentPlayer, state);
+call    0 returned 100%
+        -:   19:
+        -:   20:	//+1 Actions
+      100:   21:	state->numActions++;
+        -:   22:
+      100:   23:	void* x = state;
+      100:   24:	x++;
+      100:   25:	printf("%d", x);
+call    0 returned 100%
+        -:   26:
+        -:   27:	//discard card from hand
+      100:   28:	discardCard(handPos, currentPlayer, state, 0);
+call    0 returned 100%
+      100:   29:	return 0;
+        -:   30:
+        -:   31:}
+        -:   32:
+        -:   33:
+        -:   34:
+function main called 1 returned 100% blocks executed 94%
+        1:   35:int main(int argc, char* argv[]){
+        1:   36:	srand(time(NULL));
+call    0 returned 100%
+call    1 returned 100%
+        1:   37:	printf("Executing great hall test...\n");
+call    0 returned 100%
+        -:   38:	
+        1:   39:	struct gameState* state = newGame();	
+call    0 returned 100%
+        1:   40:	int k[10] = {adventurer, council_room, feast, gardens, mine, remodel,
+        -:   41:		smithy, village, baron, great_hall};
+        -:   42:
+        1:   43:	int x = 0;
+        1:   44:	int i = 0;
+        1:   45:	int loopCt = 100;
+        1:   46:	int passed = 1;
+        1:   47:	int numPlayers = rand()% MAX_PLAYERS;
+call    0 returned 100%
+        1:   48:	int currentPlayer = 0;
+        -:   49:
+        -:   50:
+        -:   51:
+        -:   52:	//randomize the number of players and the current player for each game.
+      101:   53:	for(i = 0; i < loopCt; i++){
+branch  0 taken 99%
+branch  1 taken 1% (fallthrough)
+      100:   54:		printf("Test Case# %d\n", i);
+call    0 returned 100%
+      100:   55:		initializeGame(numPlayers, k, 1000, state);
+call    0 returned 100%
+      100:   56:		currentPlayer = rand() % numPlayers;
+call    0 returned 100%
+      100:   57:		x = great_HallFuncTwo(currentPlayer, state, 1);
+call    0 returned 100%
+      100:   58:		if(x != 0) { passed = 0; }
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        -:   59:	}
+        -:   60:
+        -:   61:	
+        -:   62:	//print result of the random tests
+        1:   63:	if(passed == 1){
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:   64:		printf("Test passed!\n");
+call    0 returned 100%
+        -:   65:	}
+        -:   66:
+        1:   67:	return 0;
+        -:   68:}
+        -:   69:

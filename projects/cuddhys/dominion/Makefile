@@ -41,6 +41,15 @@ testGetWinners: testGetWinners.c dominion.o rngs.o
 testAdventureFunc: testAdventureFunc.c dominion.o rngs.o
 	gcc -o testAdventureFunc -g testAdventureFunc.c dominion.o rngs.o $(CFLAGS)
 
+randomtestadventurer: randomtestadventurer.c dominion.o rngs.o
+	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
+
+randomtestcard1: randomtestcard1.c dominion.o rngs.o
+	gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o $(CFLAGS)
+
+randomtestcard2: randomtestcard2.c dominion.o rngs.o
+	gcc -o randomtestcard2 -g randomtestcard2.c dominion.o rngs.o $(CFLAGS)
+
 testSmithyFunc: testSmithyFunc.c dominion.o rngs.o
 	gcc -o testSmithyFunc -g testSmithyFunc.c dominion.o rngs.o $(CFLAGS)
 
