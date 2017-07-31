@@ -1,7 +1,7 @@
         -:    0:Source:randomtestadventurer.c
         -:    0:Graph:randomtestadventurer.gcno
         -:    0:Data:randomtestadventurer.gcda
-        -:    0:Runs:1
+        -:    0:Runs:9
         -:    0:Programs:1
         -:    1:/***************************************
         -:    2: *Author : Shawn Cuddhy
@@ -18,91 +18,91 @@
         -:   13:#include <stdlib.h>
         -:   14:
         -:   15:
-function adventurerFuncTwo called 100 returned 100% blocks executed 100%
-      100:   16:int adventurerFuncTwo(int currentPlayer, struct gameState* state){
-      100:   17:	int drawntreasure = 0;
+function adventurerFuncTwo called 900 returned 100% blocks executed 100%
+      900:   16:int adventurerFuncTwo(int currentPlayer, struct gameState* state){
+      900:   17:	int drawntreasure = 0;
         -:   18:	int cardDrawn;
         -:   19:	int temphand[MAX_HAND];
-      100:   20:	int z = 0;
+      900:   20:	int z = 0;
         -:   21:
-    12793:   22:	while(drawntreasure<2){
+   115028:   22:	while(drawntreasure<2){
 branch  0 taken 99%
 branch  1 taken 1% (fallthrough)
-    12593:   23:		z = 99;
-    12593:   24:		if(state->deckCount[currentPlayer]<1){
+   113228:   23:		z = 99;
+   113228:   24:		if(state->deckCount[currentPlayer]<1){
 branch  0 taken 25% (fallthrough)
 branch  1 taken 75%
-     3185:   25:			shuffle(currentPlayer, state);
+    28556:   25:			shuffle(currentPlayer, state);
 call    0 returned 100%
         -:   26:		}
-    12593:   27:		drawCard(currentPlayer, state);
+   113228:   27:		drawCard(currentPlayer, state);
 call    0 returned 100%
-    12593:   28:		cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]-1];
-    12593:   29:		if(cardDrawn == copper || cardDrawn == silver || cardDrawn == gold){
+   113228:   28:		cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]-1];
+   113228:   29:		if(cardDrawn == copper || cardDrawn == silver || cardDrawn == gold){
 branch  0 taken 99% (fallthrough)
 branch  1 taken 1%
 branch  2 taken 100% (fallthrough)
 branch  3 taken 0%
 branch  4 taken 2% (fallthrough)
 branch  5 taken 98%
-      200:   30:			drawntreasure++;
+     1800:   30:			drawntreasure++;
         -:   31:		}
         -:   32:		else{
-    12393:   33:			temphand[z] = cardDrawn;
-    12393:   34:			state->handCount[currentPlayer]--;
-    12393:   35:			z++;
+   111428:   33:			temphand[z] = cardDrawn;
+   111428:   34:			state->handCount[currentPlayer]--;
+   111428:   35:			z++;
         -:   36:		}
         -:   37:	}
-    10100:   38:	while(z-1>=0){
+    90900:   38:	while(z-1>=0){
 branch  0 taken 99%
 branch  1 taken 1% (fallthrough)
-     9900:   39:		state->discard[currentPlayer][state->discardCount[currentPlayer]++]=temphand[z-1];
-     9900:   40:		z=z-1;
+    89100:   39:		state->discard[currentPlayer][state->discardCount[currentPlayer]++]=temphand[z-1];
+    89100:   40:		z=z-1;
         -:   41:	}
-      100:   42:	return 0;
+      900:   42:	return 0;
         -:   43:
         -:   44:}
         -:   45:
         -:   46:
-function main called 1 returned 100% blocks executed 94%
-        1:   47:int main(int argc, char* argv[]){
-        1:   48:	srand(time(NULL));
+function main called 9 returned 100% blocks executed 94%
+        9:   47:int main(int argc, char* argv[]){
+        9:   48:	srand(time(NULL));
 call    0 returned 100%
 call    1 returned 100%
         -:   49:	//function test call
-        1:   50:	printf("Executing random adventureFunc Testing...\n");
+        9:   50:	printf("Executing random adventureFunc Testing...\n");
 call    0 returned 100%
         -:   51:
-        1:   52:	int currentPlayer = 1;
-        1:   53:	struct gameState* state = newGame();
+        9:   52:	int currentPlayer = 1;
+        9:   53:	struct gameState* state = newGame();
 call    0 returned 100%
-        1:   54:	int k[10] = {adventurer, council_room, feast, gardens, mine, remodel,
+        9:   54:	int k[10] = {adventurer, council_room, feast, gardens, mine, remodel,
         -:   55:		smithy, village, baron, great_hall};
-        1:   56:	int passed = 1;
+        9:   56:	int passed = 1;
         -:   57:	int x;
         -:   58:	int randShuffle;
         -:   59:	int i;
-        1:   60:	int loopCt = 100;
+        9:   60:	int loopCt = 100;
         -:   61:
-        1:   62:	initializeGame(MAX_PLAYERS, k, 1000, state);
+        9:   62:	initializeGame(MAX_PLAYERS, k, 1000, state);
 call    0 returned 100%
         -:   63:
         -:   64:	//randomize whether deck shuffle happens or not
         -:   65:	//randomize the player that actually executes the action
         -:   66:	//check that the function runs correctly;
-      101:   67:	for(i = 0; i < loopCt; i++){
+      909:   67:	for(i = 0; i < loopCt; i++){
 branch  0 taken 99%
 branch  1 taken 1% (fallthrough)
-      100:   68:		printf("Loop count %d: \n", i);
+      900:   68:		printf("Loop count %d: \n", i);
 call    0 returned 100%
-      100:   69:		currentPlayer = rand() % MAX_PLAYERS;
+      900:   69:		currentPlayer = rand() % MAX_PLAYERS;
 call    0 returned 100%
-      100:   70:		randShuffle = rand() % 1;
+      900:   70:		randShuffle = rand() % 1;
 call    0 returned 100%
-      100:   71:		state->deckCount[currentPlayer] = randShuffle;
-      100:   72:		x = adventurerFuncTwo(currentPlayer, state);
+      900:   71:		state->deckCount[currentPlayer] = randShuffle;
+      900:   72:		x = adventurerFuncTwo(currentPlayer, state);
 call    0 returned 100%
-      100:   73:		if (x != 0) {
+      900:   73:		if (x != 0) {
 branch  0 taken 0% (fallthrough)
 branch  1 taken 100%
     #####:   74:			passed = 0;
@@ -112,15 +112,15 @@ call    0 never executed
         -:   77:
         -:   78:	}
         -:   79:
-        1:   80:	if (passed == 1) { 
+        9:   80:	if (passed == 1) { 
 branch  0 taken 100% (fallthrough)
 branch  1 taken 0%
-        1:   81:		printf("AdventureFunc random test passed!\n");
+        9:   81:		printf("AdventureFunc random test passed!\n");
 call    0 returned 100%
         -:   82:	}
         -:   83:	
-        1:   84:	free(state);
-        1:   85:	return 0;
+        9:   84:	free(state);
+        9:   85:	return 0;
         -:   86:
         -:   87:}
         -:   88:

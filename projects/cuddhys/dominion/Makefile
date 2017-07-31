@@ -44,11 +44,23 @@ testAdventureFunc: testAdventureFunc.c dominion.o rngs.o
 randomtestadventurer: randomtestadventurer.c dominion.o rngs.o
 	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
 
+runRandomTestAdventurer: randomtestadventurer.c dominion.o rngs.o
+	./randomtestadventurer.exe > randomtestadventurer.out
+	gcov randomtestadventurer.c -b >> randomtestadventurer.out
+
 randomtestcard1: randomtestcard1.c dominion.o rngs.o
 	gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o $(CFLAGS)
 
+runRandomTestCard1: randomtestcard1.c dominion.o rngs.o
+	./randomtestcard1.exe > randomtestcard1.out
+	gcov randomtestcard1 -b >> randomtestcard1.out
+
 randomtestcard2: randomtestcard2.c dominion.o rngs.o
 	gcc -o randomtestcard2 -g randomtestcard2.c dominion.o rngs.o $(CFLAGS)
+
+runRandomTestCard2: randomtestcard1.c dominion.o rngs.o
+	./randomtestcard2.exe > randomtestcard2.out
+	gcov randomtestcard2 -b >> randomtestcard2.out
 
 testSmithyFunc: testSmithyFunc.c dominion.o rngs.o
 	gcc -o testSmithyFunc -g testSmithyFunc.c dominion.o rngs.o $(CFLAGS)
