@@ -38,8 +38,8 @@ testisGameOver: testisGameOver.c dominion.o rngs.o
 testGetWinners: testGetWinners.c dominion.o rngs.o
 	gcc -o testGetWinners -g testGetWinners.c dominion.o rngs.o $(CFLAGS)
 
-testAdventureFunc: testAdventureFunc.c dominion.o rngs.o
-	gcc -o testAdventureFunc -g testAdventureFunc.c dominion.o rngs.o $(CFLAGS)
+unitTest1: testAdventureFunc.c dominion.o rngs.o
+	gcc -o unitTest1 -g testAdventureFunc.c dominion.o rngs.o $(CFLAGS)
 
 randomtestadventurer: randomtestadventurer.c dominion.o rngs.o
 	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
@@ -62,14 +62,14 @@ runRandomTestCard2: randomtestcard1.c dominion.o rngs.o
 	./randomtestcard2.exe > randomtestcard2.out
 	gcov randomtestcard2 -b >> randomtestcard2.out
 
-testSmithyFunc: testSmithyFunc.c dominion.o rngs.o
-	gcc -o testSmithyFunc -g testSmithyFunc.c dominion.o rngs.o $(CFLAGS)
+unitTest2: testSmithyFunc.c dominion.o rngs.o
+	gcc -o unitTest2 -g testSmithyFunc.c dominion.o rngs.o $(CFLAGS)
 
-testVillageFunc: testVillageFunc.c dominion.o rngs.o
-	gcc -o testVillageFunc -g testVillageFunc.c dominion.o rngs.o $(CFLAGS)
+unitTest3: testVillageFunc.c dominion.o rngs.o
+	gcc -o unitTest3 -g testVillageFunc.c dominion.o rngs.o $(CFLAGS)
 
-testGreatHallFunc: testGreatHallFunc.c dominion.o rngs.o
-	gcc -o testGreatHallFunc -g testGreatHallFunc.c dominion.o rngs.o $(CFLAGS)
+unitTest4: testGreatHallFunc.c dominion.o rngs.o
+	gcc -o unitTest4 -g testGreatHallFunc.c dominion.o rngs.o $(CFLAGS)
 
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
