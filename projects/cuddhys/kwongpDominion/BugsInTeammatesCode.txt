@@ -1,0 +1,55 @@
+
+==============================
+
+=============================
+Title:  Bug Report for assignment 5  
+
+
+Class:
+ "Bugs that create incorrect card behavior"
+
+
+Date: 8/6/2017           
+
+Reported By:  Shawn Cuddhy 
+
+Email:  cuddhys@oregonstate.edu    
+Product: CS362 dominion code                       
+Version:Language:  C
+Shell: Bash                        
+Is it reproducible: Yes
+
+============================================================
+
+
+
+===================BUG#1============================
+
+
+
+Steps to Produce/Reproduce
+: Run the unit test "testVillageFunc". The bug is also observable when the game is run, resulting in overwhelming victories for
+				player zero.
+Expected Results: The number of actions added for the Village card is equal to 2. 
+
+
+
+Actual Results: The number of actions actually added is 22.
+Workarounds: The game still plays if the card is included, although incorrectly. If the card is simply removed, it will not affect overall gameplay, other 
+		than the village card being unavailable
+Fixes: Change the actions added from 22 to 2, on line 768.
+
+
+
+===================BUG#2============================
+
+
+
+Steps to Produce/Reproduce
+: Run the unit test "testSmithyFunc"
+Expected Results: The smithy card should add 2 cards to the player's hand
+Actual Results: The card adds 3 cards to the player's hand
+Workarounds: The game still plays if the card is included, although incorrectly. If the card is simply removed, it will not affect overall gameplay, other 
+		than the village card being unavailable.
+Fixes: Change the "i <= 3" in the for loop to "i < 3", on line 750
+
